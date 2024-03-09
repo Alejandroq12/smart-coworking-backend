@@ -4,7 +4,7 @@
 <div align="center">
     <img src="/logo_jcm_md.png" alt="main-logo" width="500"  height="auto" />
   <br/>
-  <h3><b>Book An Appointment Web App - Ruby on Rails and React - Final Capstone Project</b></h3>
+  <h3><b>Book An Appointment Web App - Ruby on Rails back-end - Final Capstone Project</b></h3>
 </div>
 📗 Table of Contents <a name="table_of-contents"></a>
 
@@ -27,9 +27,15 @@
   - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
-## 📖 About project - Book An Appointment Web App <a name="about-project"></a>
+## 📖 About project - Book An Appointment Web App - Ruby on Rails Back-End <a name="about-project"></a>
 
-The Book An Appointment Web App is a responsive web application developed with Ruby on Rails & React. It represents the Final Capstone Project of the Microverse Full-Stack Developer program. This project represents the back-end part of the complete project. The front-end part is developed in another repository, using React.js and Redux.
+The Book An Appointment Web App is a responsive web application developed with Ruby on Rails & React. It represents the Final Capstone Project of the Microverse Full-Stack Developer program. This project represents the back-end part of the complete project, developed with Ruby on Rails. The front-end part is developed in another repository, using React.js and Redux.
+
+Back-end application name: book-an-appointment-back-end-mv-final-capstone
+  link: https://github.com/jcmunav63/book-an-appointment-back-end-mv-final-capstone.git
+
+Front-end application name: book-an-appointment-front-end-mv-final-capstone
+  link: https://github.com/jcmunav63/book-an-appointment-front-end-mv-final-capstone.git
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -45,6 +51,8 @@ The Book An Appointment Web App is a responsive web application developed with R
 - **Set up a Ruby on Rails project together with React.js as the front-end.**
 - **Set up linters using Stylelint and Rubocop**
 - **Connect the Rails project to a PostgreSQL database.**
+- **Set up a User model, a controller, and the corresponding database table.**
+- **Configure an API endpoint to request the users data from the front-end application.**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -70,7 +78,7 @@ $ gem install rails
 
 ```sh
   cd my-folder
-  git clone https://github.com/jcmunav63/git@github.com:jcmunav63/hello-world-rails-and-react-1.git
+  git clone https://github.com/jcmunav63/book-an-appointment-back-end-mv-final-capstone.git
 ```
 
 ### Install
@@ -108,12 +116,6 @@ bundle install
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-Install Stylelint linters checker using the following command...
-```sh
-npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
-```
-- Remember to copy the .stylelintrc.json file to the root directory.
-
 - Copy the linters.yml file inside of path .github/workflows
 
 
@@ -122,11 +124,6 @@ To run LINTERS, run the following command:
 Run the following command for Ruby code...
 ```sh
 rubocop
-```
-
-Run the following command for CSS code...
-```sh
-npx stylelint "**/*.{css,scss}"
 ```
 
 * Unit, request, and integration tests will be developed on another stage.
@@ -141,17 +138,17 @@ npx stylelint "**/*.{css,scss}"
 - Twitter: [@jcmunav63](https://twitter.com/jcmunav63)
 - LinkedIn: [@juan-carlos-muñoz](https://www.linkedin.com/in/juan-carlos-mu%C3%B1oz-5a15b6276/)
 
-👤 **Kazim Mohammad**
+👤 **Kazim Mohammadi**
 
-- GitHub: [@](https://github.com/)
-- Twitter: [@](https://twitter.com/)
-- LinkedIn: [@](https://www.linkedin.com/in//)
+- GitHub: [@kazim110](https://github.com/kazim110)
+- Twitter: [@kazim471](https://twitter.com/kazim471)
+- LinkedIn: [@Kazim Mohammadi](https://www.linkedin.com/in/kazim-mohammadi/)
 
 👤 **Julio Alejandro Quezada**
 
-- GitHub: [@](https://github.com/)
-- Twitter: [@](https://twitter.com/)
-- LinkedIn: [@](https://www.linkedin.com/in//)
+- GitHub: [Alejandroq12](https://github.com/Alejandroq12)
+- Twitter: [@JulioAle54](https://twitter.com/JulioAle54)
+- LinkedIn: [Julio Quezada](https://www.linkedin.com/in/quezadajulio/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -183,7 +180,7 @@ I would like to thank all my colleagues, who inspire me to do my best everyday.
 
 **Did you create this project from scratch?**
 
-  - It is a simple Ruby on Rails project on the backend with connection to React.js on the frontend. It uses only one repo, by means of the Webpack JS bundler and the jsbundling-rails gem.
+  - It is a simple Ruby on Rails project on the backend with connection to React.js on the frontend. It uses two repos, this one for the back-end and another one for the front-end.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
