@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_050801) do
     t.string "name"
     t.string "model"
     t.text "description"
+    t.string "address"
     t.decimal "price"
     t.string "image"
     t.decimal "discount"

@@ -4,6 +4,7 @@ class CreateSpaceCws < ActiveRecord::Migration[7.1]
       t.string :name
       t.string :model
       t.text :description
+      t.string :address
       t.decimal :price
       t.string :image
       t.decimal :discount
