@@ -41,7 +41,8 @@ module Api
 
       def space_cw_params
         # -- Soon to be included --
-        # params.require(:space_cw).permit(:name, :description, :address, :price, :image, :discount, :category, :user_id)
+        # params.require(:space_cw).permit(:name, :description, :address, :price, :image, :discount,
+        # :category, :user_id)
       end
     end
   end
