@@ -1,2 +1,0 @@
-class SpaceCwsController < ApplicationController
-end
