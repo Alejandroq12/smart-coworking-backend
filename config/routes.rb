@@ -16,9 +16,13 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:index] do
         resources :space_cws, only: [:index, :create, :destroy]
+        resources :reservations, only: [:index, :create, :destroy]
       end
       resources :states, only: [:index] do
-        resources :cities, only: [:index]
+        resources :reservations, only: [:index, :create, :destroy]
+        resources :cities, only: [:index] do
+          resources :reservations, only: [:index, :create, :destroy]
+        end
       end
     end
   end
