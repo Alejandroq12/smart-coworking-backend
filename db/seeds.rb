@@ -1,3 +1,5 @@
+require 'date'
+
 # Seeds file to create initial data for the database tables
 
 user1 = User.create(name: 'John Smith', email: 'johnsmith@gmail.com', password: 'me1234', password_confirmation: 'me1234', role: 'default')
@@ -53,3 +55,20 @@ space6 = SpaceCw.create(name: 'NY Central Park - Private Office 4p', model: 'PO-
   address: '#387 Fifth Ave. MAN, New York City, NY', price: 0, image: 'http://cdn.com/432547.png', discount: 0, category: '', user_id: user3.id)
 space7 = SpaceCw.create(name: 'NY Central Park - Private Office 8p', model: 'PO-8p', description: 'New York City - Central Park - Manhattan. Move-in ready office, capacity of 8 persons. Fully furnished.',
   address: '#387 Fifth Ave. MAN, New York City, NY', price: 0, image: 'http://cdn.com/482587.png', discount: 0, category: '', user_id: user3.id)
+
+# Space Reservations
+start_date1 = Date.tomorrow
+end_date1 = Date.tomorrow + 3.days
+start_time1 = Time.new(start_date1.year, start_date1.month, start_date1.day, 3, 0, 0) # 9:00 am (my time zone is UTC -6, so 3+6 = 9)
+end_time1 = Time.new(end_date1.year, end_date1.month, end_date1.day, 11, 0, 0) # 5:00 pm (my time zone is UTC -6, so 11+6 = 17)
+
+reservation1 = Reservation.create(user_id: user1.id, space_cw_id: space1.id, date_reserved: Date.today, date_cancelled: '', start_date: start_date1, end_date: end_date1,
+  start_time: start_time1, end_time: end_time1, city_id: city2.id, comments: "Test reservation 1 - User 1 - Space 1 - City 2")
+
+start_date2 = Date.tomorrow
+end_date2 = Date.tomorrow + 3.days
+start_time2 = Time.new(start_date2.year, start_date2.month, start_date2.day, 3, 0, 0) # 9:00 am (my time zone is UTC -6, so 3+6 = 9)
+end_time2 = Time.new(end_date2.year, end_date2.month, end_date2.day, 11, 0, 0) # 5:00 pm (my time zone is UTC -6, so 11+6 = 17)
+
+reservation2 = Reservation.create(user_id: user2.id, space_cw_id: space4.id, date_reserved: Date.today, date_cancelled: '', start_date: start_date2, end_date: end_date2,
+  start_time: start_time2, end_time: end_time2, city_id: city14.id, comments: "Test reservation 2 - User 2 - Space 4 - City 14")
