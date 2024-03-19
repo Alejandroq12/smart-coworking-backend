@@ -23,6 +23,13 @@ module Api
         end
       end
 
+      def destroy
+        user = User.find(params[:user_id])
+        reservation = user.reservations.find(params[:id])
+        reservation.destroy
+        head :no_content
+      end
+
       private
 
       def reservation_params
