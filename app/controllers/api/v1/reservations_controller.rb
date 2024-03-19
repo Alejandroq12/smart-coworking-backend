@@ -28,6 +28,8 @@ module Api
         reservation = user.reservations.find(params[:id])
         reservation.destroy
         head :no_content
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: 'Reservation not found' }, status: :not_found
       end
 
       private
