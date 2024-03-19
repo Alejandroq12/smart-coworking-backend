@@ -19,7 +19,7 @@ Rails.application.routes.draw do
         resources :reservations, only: [:index, :create, :destroy]
       end
       resources :states, only: [:index] do
-        resources :reservations, only: [:index, :create, :destroy]
+        # resources :reservations, only: [:index, :create, :destroy]
         resources :cities, only: [:index] do
           resources :reservations, only: [:index, :create, :destroy]
         end
