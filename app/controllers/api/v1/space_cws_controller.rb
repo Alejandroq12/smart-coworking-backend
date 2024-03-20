@@ -37,7 +37,7 @@ module Api
       end
 
       def show
-        render json: @space_cw
+        render json: { id: @space_cw.id, name: @space_cw.name }
       end
 
       private
