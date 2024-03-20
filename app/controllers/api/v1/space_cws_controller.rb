@@ -1,6 +1,8 @@
 module Api
   module V1
-    class SpaceCwsController < ActionController::API
+    class SpaceCwsController < ApplicationController
+      before_action :set_space_cw, only: [:show]
+
       def index
         user = User.find(params[:user_id])
         space_cws = user.space_cws
@@ -15,34 +17,40 @@ module Api
       end
 
       def new
-        # -- Soon to be included --
-        # space_cw = SpaceCw.new
-        # render json: space_cw
+        space_cw = SpaceCw.new
+        render json: space_cw
       end
 
       def create
-        # -- Soon to be included --
-        # space_cw = SpaceCw.new(space_cw_params)
-        # if space_cw.save
-        #   render json: space_cw, status: :created
-        # else
-        #   render json: space_cw.errors, status: :unprocessable_entity
-        # end
+        space_cw = SpaceCw.new(space_cw_params)
+        if space_cw.save
+          render json: space_cw, status: :created
+        else
+          render json: space_cw.errors, status: :unprocessable_entity
+        end
       end
 
       def destroy
-        # -- Soon to be included --
-        # space_cw = SpaceCw.find(params[:id])
-        # space_cw.destroy
-        # head :no_content
+        space_cw = SpaceCw.find(params[:id])
+        space_cw.destroy
+        head :no_content
+      end
+
+      def show
+        render json: { id: @space_cw.id, name: @space_cw.name }
       end
 
       private
 
       def space_cw_params
-        # -- Soon to be included --
-        # params.require(:space_cw).permit(:name, :description, :address, :price, :image, :discount,
-        # :category, :user_id)
+        params.require(:space_cw)
+          .permit(:name, :model, :description, :address, :price, :image, :discount, :category, :user_id)
+      end
+
+      def set_space_cw
+        @space_cw = SpaceCw.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: 'Space_cw not found' }, status: :not_found
       end
     end
   end

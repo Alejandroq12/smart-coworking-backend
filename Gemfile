@@ -11,6 +11,10 @@ gem 'pg', '~> 1.1'
 # gem irb now depends on psych, but version 5 will not bundle currently  
 gem "psych", "~> 4" 
 
+gem 'devise'
+
+gem 'devise-jwt'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'
 
@@ -46,6 +50,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'dotenv-rails'
 end
 
 group :development do
