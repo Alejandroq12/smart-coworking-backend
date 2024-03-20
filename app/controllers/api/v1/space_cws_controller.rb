@@ -1,6 +1,8 @@
 module Api
   module V1
     class SpaceCwsController < ApplicationController
+      before_action :set_space_cw, only: [:show]
+
       def index
         user = User.find(params[:user_id])
         space_cws = user.space_cws
@@ -34,11 +36,21 @@ module Api
         head :no_content
       end
 
+      def show
+        render json: @space_cw
+      end
+
       private
 
       def space_cw_params
         params.require(:space_cw)
           .permit(:name, :model, :description, :address, :price, :image, :discount, :category, :user_id)
+      end
+
+      def set_space_cw
+        @space_cw = SpaceCw.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: 'Space_cw not found' }, status: :not_found
       end
     end
   end
