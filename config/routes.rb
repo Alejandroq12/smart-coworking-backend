@@ -24,6 +24,9 @@ Rails.application.routes.draw do
           resources :reservations, only: [:index, :create, :destroy]
         end
       end
+
+      resources :cities, only: [:show]
+      resources :space_cws, only: [:show]
     end
   end
 end
