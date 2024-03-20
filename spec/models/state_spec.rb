@@ -12,4 +12,12 @@ RSpec.describe State, type: :model do
       expect(association.macro).to eq :has_many
     end
   end
+
+  describe "validations" do
+    it "should validate presence of name" do
+      state = State.new
+      expect(state).not_to be_valid
+      expect(state.errors[:name]).to include("can't be blank")
+    end
+  end
 end
