@@ -7,4 +7,12 @@ RSpec.describe Country, type: :model do
       expect(association.macro).to eq :has_many
     end
   end
+
+  describe "validations" do
+    it "should validate presence of name" do
+      country = Country.new
+      expect(country).not_to be_valid
+      expect(country.errors[:name]).to include("can't be blank")
+    end
+  end
 end
