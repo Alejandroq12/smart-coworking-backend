@@ -47,7 +47,7 @@ RSpec.configure do |config|
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 
-# Commented from here...
+  # Commented from here...
   # This allows you to limit a spec run to individual examples or groups
   # you care about by tagging them with `:focus` metadata. When nothing
   # is tagged with `:focus`, all examples get run. RSpec also provides
@@ -72,11 +72,11 @@ RSpec.configure do |config|
   # Many RSpec users commonly either run the entire suite or an individual
   # file, and it's useful to allow more verbose output when running an
   # individual spec file.
-  # if config.files_to_run.one?
+    # if config.files_to_run.one?
     # Use the documentation formatter for detailed output,
     # unless a formatter has already been configured
     # (e.g. via a command-line flag).
-    # config.default_formatter = "doc"
+  # config.default_formatter = "doc"
   # end
 
   # Print the 10 slowest examples and example groups at the
@@ -94,6 +94,6 @@ RSpec.configure do |config|
   # Setting this allows you to use `--seed` to deterministically reproduce
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
-  # Kernel.srand config.seed
-# Commented until here
+# Kernel.srand config.seed
+  # Commented until here
 end
