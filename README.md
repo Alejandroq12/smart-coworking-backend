@@ -10,6 +10,7 @@
 
 - [📗 Table of Contents](#table-of-contents)
 - [📖 About project ](#about-project)
+  - [📖 Kanban Board ](#kanban-board)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -37,6 +38,18 @@ Back-end application name: book-an-appointment-back-end-mv-final-capstone
 Front-end application name: book-an-appointment-front-end-mv-final-capstone
   link: https://github.com/jcmunav63/book-an-appointment-front-end-mv-final-capstone.git
 
+## 📖 KANBAN BOARD - Book An Appointment Web App - Ruby on Rails Back-End <a name="kanban-board"></a>
+
+- Number of team members: 3 (Julio Alejandro Quezada, Kazim Mohammadi, Juan Carlos Muñoz)
+
+- Link to our Kanban Board: https://github.com/users/jcmunav63/projects/6/views/1
+
+- Links to 2 images that show our Kanban Board at the beginning...
+  - First image (Kanban Board - table view) https://drive.google.com/file/d/1ZEWuTbIN_ITMl13PYAsZh3aQ4zbOEOJT/view?usp=drive_link
+
+  - Second image (Kanban Board - table view) https://drive.google.com/file/d/132tbQEmSjXSmgK0uiCKLVfwkUYCtLdNi/view?usp=drive_link
+
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -53,6 +66,7 @@ Front-end application name: book-an-appointment-front-end-mv-final-capstone
 - **Connect the Rails project to a PostgreSQL database.**
 - **Set up a User model, a controller, and the corresponding database table.**
 - **Configure an API endpoint to request the users data from the front-end application.**
+- **Implement all API endpoints to request data about: Users, Coworking Spaces, Reservations, Cities, States.**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -154,7 +168,7 @@ rubocop
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- *** Unit, request, and integration tests will be developed on another stage.**
+- *** Implement other functionalities, like authorization.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -172,7 +186,9 @@ If you like this project please give me a star on Github. Thanks in advance.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank all my colleagues, who inspire me to do my best everyday.
+* We would like to acknowledge that our application is based on Murat Korkmaz application design called "Vespa - Responsive Redesign", which is open for use under the [Creative Commons license](https://creativecommons.org/licenses/by-nc/4.0/). You can find this design on [Behance](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign). We are very grateful to Murat Korkmaz for his excellent contribution.
+
+* We would like to thank our colleagues, who inspire us to do our best everyday.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -180,7 +196,7 @@ I would like to thank all my colleagues, who inspire me to do my best everyday.
 
 **Did you create this project from scratch?**
 
-  - It is a simple Ruby on Rails project on the backend with connection to React.js on the frontend. It uses two repos, this one for the back-end and another one for the front-end.
+  - It is a complete Ruby on Rails project on the backend with connection to React.js and Redux.js on the frontend. It uses two repos, this one for the back-end and another one for the front-end.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
