@@ -138,6 +138,13 @@ Start the Ruby on Rails web server (Puma server) typing the following command...
   rails server
 ```
 
+### Run tests
+To execute all test suites in the application, use the following command in your terminal:
+
+```sh
+rspec
+```
+
 ### Check linters
 
 * Install the Rubocop and Stylelint linters.
