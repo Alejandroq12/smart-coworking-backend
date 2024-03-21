@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       end
 
       resources :cities, only: [:show]
+      get 'all_cities', to: 'cities#all_cities'
       resources :space_cws, only: [:show]
     end
   end
