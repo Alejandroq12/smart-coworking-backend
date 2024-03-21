@@ -29,7 +29,7 @@ RSpec.describe SpaceCw, type: :model do
     it 'should validate numericality of price' do
       space_cw = SpaceCw.new(name: 'Test Name', description: 'Test Description', price: 'not_a_number')
       expect(space_cw).not_to be_valid
-      expect(space_cw.errors[:price]).to include("is not a number")
+      expect(space_cw.errors[:price]).to include('is not a number')
 
       space_cw.price = -1
       expect(space_cw).not_to be_valid
