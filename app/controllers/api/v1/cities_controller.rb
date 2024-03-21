@@ -22,6 +22,20 @@ module Api
         render json: { id: @city.id, name: @city.name }
       end
 
+      def all_cities
+        cities = City.order('countries.abbrev ASC, states.abbrev ASC, cities.name ASC')
+          .includes(state: :country).map do |city|
+          {
+            country_abbrev: city.state.country.abbrev,
+            state_abbrev: city.state.abbrev,
+            city_id: city.id,
+            city_name: city.name
+          }
+        end
+
+        render json: cities
+      end
+
       private
 
       def set_city
