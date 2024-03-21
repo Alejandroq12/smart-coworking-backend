@@ -102,6 +102,31 @@ This project requires the following dependencies: the Ruby interpreter, the Gem 
 ```sh
 bundle install
 ```
+a
+### Database
+
+
+```sh
+sudo service postgresql start
+```
+
+Create database:
+
+```sh
+rails db:create
+```
+
+Run migrations:
+
+```sh
+rails db:migrate
+```
+
+Add the seeds:
+
+```sh
+rails db:seed
+```
 
 ### Usage
 
@@ -111,6 +136,13 @@ Start the Ruby on Rails web server (Puma server) typing the following command...
 ```sh
   rails s , or the complete command,
   rails server
+```
+
+### Run tests
+To execute all test suites in the application, use the following command in your terminal:
+
+```sh
+rspec
 ```
 
 ### Check linters
