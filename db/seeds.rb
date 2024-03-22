@@ -1,9 +1,74 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require 'date'
+
+# Seeds file to create initial data for the database tables
+
+user1 = User.create(name: 'John Smith', email: 'johnsmith@gmail.com', password: 'me1234', password_confirmation: 'me1234', role: 'default')
+user2 = User.create(name: 'Jane Summer', email: 'janesummer@gmail.com', password: 'me1234', password_confirmation: 'me1234', role: 'default')
+user3 = User.create(name: 'Edward Stone', email: 'edwardstone@gmail.com', password: 'me1234', password_confirmation: 'me1234', role: 'admin')
+
+# Country - USA
+country1 = Country.create(name: 'United States of America', abbrev: 'USA')
+
+# Three states of USA
+state1 = State.create(name: 'California', abbrev: 'CA', country_id: country1.id)
+state2 = State.create(name: 'New York', abbrev: 'NY', country_id: country1.id)
+state3 = State.create(name: 'Texas', abbrev: 'TX', country_id: country1.id)
+
+# Some cities in California
+city1 = City.create(name: 'Los Angeles', state_id: state1.id)
+city2 = City.create(name: 'San Francisco', state_id: state1.id)
+city3 = City.create(name: 'San Diego', state_id: state1.id)
+city4 = City.create(name: 'Oakland', state_id: state1.id)
+city5 = City.create(name: 'San Jose', state_id: state1.id)
+city6 = City.create(name: 'Fresno', state_id: state1.id)
+city7 = City.create(name: 'Sacramento', state_id: state1.id)
+
+# Some cities in New York
+city8 = City.create(name: 'New York City', state_id: state2.id)
+city9 = City.create(name: 'Buffalo', state_id: state2.id)
+city10 = City.create(name: 'Hempstead Town', state_id: state2.id)
+city11 = City.create(name: 'Brookhaven', state_id: state2.id)
+city12 = City.create(name: 'Syracuse', state_id: state2.id)
+city13 = City.create(name: 'Rochester City', state_id: state2.id)
+
+# Some cities in Texas
+city14 = City.create(name: 'Dallas', state_id: state3.id)
+city15 = City.create(name: 'Austin', state_id: state3.id)
+city16 = City.create(name: 'Houston', state_id: state3.id)
+city17 = City.create(name: 'San Antonio', state_id: state3.id)
+city18 = City.create(name: 'Fort Worth', state_id: state3.id)
+city19 = City.create(name: 'El Paso', state_id: state3.id)
+city20 = City.create(name: 'Arlington', state_id: state3.id)
+
+# Coworking Spaces
+space1 = SpaceCw.create(name: 'SF Mid Market - Private Office 2p', model: 'PO-2p', description: 'San Francisco -Mid Market. Move-in ready office, capacity of 2 persons. Fully furnished.',
+  address: '#1005 Market St. SF, CA', price: 0, image: 'http://cdn.com/122546.png', discount: 0, category: '', user_id: user1.id)
+space2 = SpaceCw.create(name: 'SF Mid Market - Private Office 4p', model: 'PO-4p', description: 'San Francisco - Mid Market. Move-in ready office, capacity of 4 people. Fully furnished.',
+  address: '#1005 Market St. SF, CA', price: 0, image: 'http://cdn.com/122545.png', discount: 0, category: '', user_id: user1.id)
+space3 = SpaceCw.create(name: 'SF Downtown - Meeting Room 20p', model: 'MR-20p', description: 'San Francisco - Downtown. Book a room by the hour for meeting clients and co-workers. Capacity of 20 people.',
+  address: '#473 Franklin St. SF, CA', price: 0, image: 'http://cdn.com/122536.png', discount: 0, category: '', user_id: user1.id)
+space4 = SpaceCw.create(name: 'Dallas Downtown - Meeting Room 10p', model: 'MR-10p', description: 'Dallas - Downtown. Book a room by the hour for meeting clients and co-workers. Capacity of 10 people.',
+  address: '#387 Johnson St. Downtown, Dallas, TX', price: 0, image: 'http://cdn.com/123336.png', discount: 0, category: '', user_id: user2.id)
+space5 = SpaceCw.create(name: 'Dallas Downtown - Private Office 4p', model: 'PO-4p', description: 'Dallas - Downtown. Move-in ready office, capacity of 4 people. Fully furnished.',
+  address: '#387 Johnson St. Downtown, Dallas, TX', price: 0, image: 'http://cdn.com/122545.png', discount: 0, category: '', user_id: user2.id)
+space6 = SpaceCw.create(name: 'NY Central Park - Private Office 4p', model: 'PO-4p', description: 'New York City - Central Park - Manhattan. Move-in ready office, capacity of 4 persons. Fully furnished.',
+  address: '#387 Fifth Ave. MAN, New York City, NY', price: 0, image: 'http://cdn.com/432547.png', discount: 0, category: '', user_id: user3.id)
+space7 = SpaceCw.create(name: 'NY Central Park - Private Office 8p', model: 'PO-8p', description: 'New York City - Central Park - Manhattan. Move-in ready office, capacity of 8 persons. Fully furnished.',
+  address: '#387 Fifth Ave. MAN, New York City, NY', price: 0, image: 'http://cdn.com/482587.png', discount: 0, category: '', user_id: user3.id)
+
+# Space Reservations
+start_date1 = Date.tomorrow
+end_date1 = Date.tomorrow + 3.days
+start_time1 = Time.new(start_date1.year, start_date1.month, start_date1.day, 3, 0, 0) # 9:00 am (my time zone is UTC -6, so 3+6 = 9)
+end_time1 = Time.new(end_date1.year, end_date1.month, end_date1.day, 11, 0, 0) # 5:00 pm (my time zone is UTC -6, so 11+6 = 17)
+
+reservation1 = Reservation.create(user_id: user1.id, space_cw_id: space1.id, date_reserved: Date.today, date_cancelled: '', start_date: start_date1, end_date: end_date1,
+  start_time: start_time1, end_time: end_time1, city_id: city2.id, comments: "Test reservation 1 - User 1 - Space 1 - City 2")
+
+start_date2 = Date.tomorrow
+end_date2 = Date.tomorrow + 3.days
+start_time2 = Time.new(start_date2.year, start_date2.month, start_date2.day, 3, 0, 0) # 9:00 am (my time zone is UTC -6, so 3+6 = 9)
+end_time2 = Time.new(end_date2.year, end_date2.month, end_date2.day, 11, 0, 0) # 5:00 pm (my time zone is UTC -6, so 11+6 = 17)
+
+reservation2 = Reservation.create(user_id: user2.id, space_cw_id: space4.id, date_reserved: Date.today, date_cancelled: '', start_date: start_date2, end_date: end_date2,
+  start_time: start_time2, end_time: end_time2, city_id: city14.id, comments: "Test reservation 2 - User 2 - Space 4 - City 14")

@@ -4,12 +4,13 @@
 <div align="center">
     <img src="/logo_jcm_md.png" alt="main-logo" width="500"  height="auto" />
   <br/>
-  <h3><b>Book An Appointment Web App - Ruby on Rails and React - Final Capstone Project</b></h3>
+  <h3><b>Book An Appointment Web App - Ruby on Rails back-end - Final Capstone Project</b></h3>
 </div>
 📗 Table of Contents <a name="table_of-contents"></a>
 
 - [📗 Table of Contents](#table-of-contents)
 - [📖 About project ](#about-project)
+  - [📖 Kanban Board ](#kanban-board)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -27,9 +28,27 @@
   - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
-## 📖 About project - Book An Appointment Web App <a name="about-project"></a>
+## 📖 About project - Book An Appointment Web App - Ruby on Rails Back-End <a name="about-project"></a>
 
-The Book An Appointment Web App is a responsive web application developed with Ruby on Rails & React. It represents the Final Capstone Project of the Microverse Full-Stack Developer program. This project represents the back-end part of the complete project. The front-end part is developed in another repository, using React.js and Redux.
+The Book An Appointment Web App is a responsive web application developed with Ruby on Rails & React. It represents the Final Capstone Project of the Microverse Full-Stack Developer program. This project represents the back-end part of the complete project, developed with Ruby on Rails. The front-end part is developed in another repository, using React.js and Redux.
+
+Back-end application name: book-an-appointment-back-end-mv-final-capstone
+  link: https://github.com/jcmunav63/book-an-appointment-back-end-mv-final-capstone.git
+
+Front-end application name: book-an-appointment-front-end-mv-final-capstone
+  link: https://github.com/jcmunav63/book-an-appointment-front-end-mv-final-capstone.git
+
+## 📖 KANBAN BOARD - Book An Appointment Web App - Ruby on Rails Back-End <a name="kanban-board"></a>
+
+- Number of team members: 3 (Julio Alejandro Quezada, Kazim Mohammadi, Juan Carlos Muñoz)
+
+- Link to our Kanban Board: https://github.com/users/jcmunav63/projects/6/views/1
+
+- Links to 2 images that show our Kanban Board at the beginning...
+  - First image (Kanban Board - table view) https://drive.google.com/file/d/1ZEWuTbIN_ITMl13PYAsZh3aQ4zbOEOJT/view?usp=drive_link
+
+  - Second image (Kanban Board - table view) https://drive.google.com/file/d/132tbQEmSjXSmgK0uiCKLVfwkUYCtLdNi/view?usp=drive_link
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -45,6 +64,9 @@ The Book An Appointment Web App is a responsive web application developed with R
 - **Set up a Ruby on Rails project together with React.js as the front-end.**
 - **Set up linters using Stylelint and Rubocop**
 - **Connect the Rails project to a PostgreSQL database.**
+- **Set up a User model, a controller, and the corresponding database table.**
+- **Configure an API endpoint to request the users data from the front-end application.**
+- **Implement all API endpoints to request data about: Users, Coworking Spaces, Reservations, Cities, States.**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -70,7 +92,7 @@ $ gem install rails
 
 ```sh
   cd my-folder
-  git clone https://github.com/jcmunav63/git@github.com:jcmunav63/hello-world-rails-and-react-1.git
+  git clone https://github.com/jcmunav63/book-an-appointment-back-end-mv-final-capstone.git
 ```
 
 ### Install
@@ -79,6 +101,31 @@ This project requires the following dependencies: the Ruby interpreter, the Gem 
 
 ```sh
 bundle install
+```
+a
+### Database
+
+
+```sh
+sudo service postgresql start
+```
+
+Create database:
+
+```sh
+rails db:create
+```
+
+Run migrations:
+
+```sh
+rails db:migrate
+```
+
+Add the seeds:
+
+```sh
+rails db:seed
 ```
 
 ### Usage
@@ -89,6 +136,13 @@ Start the Ruby on Rails web server (Puma server) typing the following command...
 ```sh
   rails s , or the complete command,
   rails server
+```
+
+### Run tests
+To execute all test suites in the application, use the following command in your terminal:
+
+```sh
+rspec
 ```
 
 ### Check linters
@@ -108,12 +162,6 @@ bundle install
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-Install Stylelint linters checker using the following command...
-```sh
-npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
-```
-- Remember to copy the .stylelintrc.json file to the root directory.
-
 - Copy the linters.yml file inside of path .github/workflows
 
 
@@ -122,11 +170,6 @@ To run LINTERS, run the following command:
 Run the following command for Ruby code...
 ```sh
 rubocop
-```
-
-Run the following command for CSS code...
-```sh
-npx stylelint "**/*.{css,scss}"
 ```
 
 * Unit, request, and integration tests will be developed on another stage.
@@ -141,23 +184,23 @@ npx stylelint "**/*.{css,scss}"
 - Twitter: [@jcmunav63](https://twitter.com/jcmunav63)
 - LinkedIn: [@juan-carlos-muñoz](https://www.linkedin.com/in/juan-carlos-mu%C3%B1oz-5a15b6276/)
 
-👤 **Kazim Mohammad**
+👤 **Kazim Mohammadi**
 
-- GitHub: [@](https://github.com/)
-- Twitter: [@](https://twitter.com/)
-- LinkedIn: [@](https://www.linkedin.com/in//)
+- GitHub: [@kazim110](https://github.com/kazim110)
+- Twitter: [@kazim471](https://twitter.com/kazim471)
+- LinkedIn: [@Kazim Mohammadi](https://www.linkedin.com/in/kazim-mohammadi/)
 
 👤 **Julio Alejandro Quezada**
 
-- GitHub: [@](https://github.com/)
-- Twitter: [@](https://twitter.com/)
-- LinkedIn: [@](https://www.linkedin.com/in//)
+- GitHub: [Alejandroq12](https://github.com/Alejandroq12)
+- Twitter: [@JulioAle54](https://twitter.com/JulioAle54)
+- LinkedIn: [Julio Quezada](https://www.linkedin.com/in/quezadajulio/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- *** Unit, request, and integration tests will be developed on another stage.**
+- *** Implement other functionalities, like authorization.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -175,7 +218,9 @@ If you like this project please give me a star on Github. Thanks in advance.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank all my colleagues, who inspire me to do my best everyday.
+* We would like to acknowledge that our application is based on Murat Korkmaz application design called "Vespa - Responsive Redesign", which is open for use under the [Creative Commons license](https://creativecommons.org/licenses/by-nc/4.0/). You can find this design on [Behance](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign). We are very grateful to Murat Korkmaz for his excellent contribution.
+
+* We would like to thank our colleagues, who inspire us to do our best everyday.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -183,7 +228,7 @@ I would like to thank all my colleagues, who inspire me to do my best everyday.
 
 **Did you create this project from scratch?**
 
-  - It is a simple Ruby on Rails project on the backend with connection to React.js on the frontend. It uses only one repo, by means of the Webpack JS bundler and the jsbundling-rails gem.
+  - It is a complete Ruby on Rails project on the backend with connection to React.js and Redux.js on the frontend. It uses two repos, this one for the back-end and another one for the front-end.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
