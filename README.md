@@ -1,42 +1,42 @@
-## Book An Appointment Web App - Final Capstone Project
+## Smart Coworking - Back-end
 
 <a name="readme-top"></a>
 <div align="center">
-    <img src="/logo_jcm_md.png" alt="main-logo" width="500"  height="auto" />
+    <img src="/julio-logo.png" alt="main-logo" width="500"  height="auto" />
   <br/>
-  <h3><b>Book An Appointment Web App - Ruby on Rails back-end - Final Capstone Project</b></h3>
+  <h3><b>Smart Coworking - Back-end</b></h3>
 </div>
 📗 Table of Contents <a name="table_of-contents"></a>
 
-- [📗 Table of Contents](#table-of-contents)
-- [📖 About project ](#about-project)
-  - [📖 Kanban Board ](#kanban-board)
-  - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
-    - [Setup](#setup)
-    - [Install](#install)
-    - [Usage](#usage)
-    - [Run tests](#run-tests)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [❓ FAQ ](#-faq-)
-  - [📝 License ](#-license-)
+- [Smart Coworking - Back-end](#smart-coworking---back-end)
+- [📖 About project - Smart Coworking - Back-end ](#-about-project---smart-coworking---back-end-)
+- [📖 KANBAN BOARD - Book An Appointment Web App - Ruby on Rails Back-End ](#-kanban-board---book-an-appointment-web-app---ruby-on-rails-back-end-)
+- [🛠 Built With ](#-built-with-)
+  - [Tech Stack ](#tech-stack-)
+  - [Key Features ](#key-features-)
+- [💻 Getting Started ](#-getting-started-)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Install](#install)
+  - [Database](#database)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Check linters](#check-linters)
+- [👥 Authors ](#-authors-)
+- [🔭 Future Features ](#-future-features-)
+- [🤝 Contributing ](#-contributing-)
+- [⭐️ Show your support ](#️-show-your-support-)
+- [🙏 Acknowledgments ](#-acknowledgments-)
+- [❓ FAQ ](#-faq-)
+- [📝 License ](#-license-)
 
-## 📖 About project - Book An Appointment Web App - Ruby on Rails Back-End <a name="about-project"></a>
+## 📖 About project - Smart Coworking - Back-end <a name="about-project"></a>
 
-The Book An Appointment Web App is a responsive web application developed with Ruby on Rails & React. It represents the Final Capstone Project of the Microverse Full-Stack Developer program. This project represents the back-end part of the complete project, developed with Ruby on Rails. The front-end part is developed in another repository, using React.js and Redux.
+TSmart Coworking is a full-stack web application developed with Ruby on Rails & React. This project represents the back-end part of the complete project, developed with Ruby on Rails. The front-end part is developed in another repository, using React.js and Redux.
 
-Back-end application name: book-an-appointment-back-end-mv-final-capstone
-  link: https://github.com/jcmunav63/book-an-appointment-back-end-mv-final-capstone.git
+Front-end link: https://github.com/Alejandroq12/smart-coworking-frontend
 
-Front-end application name: book-an-appointment-front-end-mv-final-capstone
-  link: https://github.com/jcmunav63/book-an-appointment-front-end-mv-final-capstone.git
+Back-end link: https://github.com/Alejandroq12/smart-coworking-backend
 
 ## 📖 KANBAN BOARD - Book An Appointment Web App - Ruby on Rails Back-End <a name="kanban-board"></a>
 
@@ -92,7 +92,7 @@ $ gem install rails
 
 ```sh
   cd my-folder
-  git clone https://github.com/jcmunav63/book-an-appointment-back-end-mv-final-capstone.git
+  git clone https://github.com/Alejandroq12/smart-coworking-backend.git
 ```
 
 ### Install
@@ -134,10 +134,13 @@ To run the project, navigate to the project directory and execute the following 
 
 Start the Ruby on Rails web server (Puma server) typing the following command...
 ```sh
-  rails s , or the complete command,
   rails server
 ```
+or
 
+```sh
+  rails s
+```
 ### Run tests
 To execute all test suites in the application, use the following command in your terminal:
 
