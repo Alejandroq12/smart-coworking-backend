@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
       resources :cities, only: [:show]
       get 'all_cities', to: 'cities#all_cities'
+      get 'coworking_spaces', to: 'space_cws#index'
       resources :space_cws, only: [:show]
     end
   end
