@@ -13,6 +13,8 @@ gem 'psych', '~> 4'
 
 gem 'devise'
 
+gem 'rack-attack'
+
 gem 'devise-jwt'
 
 # Use the Puma web server [https://github.com/puma/puma]
