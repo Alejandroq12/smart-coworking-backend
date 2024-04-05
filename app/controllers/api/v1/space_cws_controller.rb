@@ -4,7 +4,8 @@ module Api
       before_action :set_space_cw, only: [:show]
 
       def index
-        @coworking_spaces = SpaceCw.all
+        reserved_space_ids = Reservation.select(:space_cw_id).distinct.pluck(:space_cw_id)
+        @coworking_spaces = SpaceCw.where.not(id: reserved_space_ids)
 
         if @coworking_spaces.any?
           render json: @coworking_spaces
