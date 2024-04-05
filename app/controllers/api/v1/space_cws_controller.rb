@@ -4,16 +4,13 @@ module Api
       before_action :set_space_cw, only: [:show]
 
       def index
-        user = User.find(params[:user_id])
-        space_cws = user.space_cws
+        @coworking_spaces = SpaceCw.all
 
-        if space_cws.any?
-          render json: space_cws
+        if @coworking_spaces.any?
+          render json: @coworking_spaces
         else
-          render json: { message: 'No coworking spaces found for this user' }, status: :not_found
+          render json: { message: 'No coworking spaces found.' }, status: :not_found
         end
-      rescue ActiveRecord::RecordNotFound
-        render json: { error: 'User not found' }, status: :not_found
       end
 
       def new
