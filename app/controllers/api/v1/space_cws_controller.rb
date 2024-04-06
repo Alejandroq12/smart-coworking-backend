@@ -1,6 +1,7 @@
 module Api
   module V1
     class SpaceCwsController < ApplicationController
+      before_action :authenticate_user!
       before_action :set_space_cw, only: [:show]
 
       def index
