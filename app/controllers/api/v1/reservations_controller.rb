@@ -1,6 +1,8 @@
 module Api
   module V1
     class ReservationsController < ApplicationController
+      before_action :authenticate_user!
+
       def index
         user = User.find(params[:user_id])
         reservations = user.reservations
