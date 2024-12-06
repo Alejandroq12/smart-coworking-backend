@@ -1,5 +1,5 @@
 class State < ApplicationRecord
   belongs_to :country
-  has_many :cities
-  validates :name, presence: true
+  has_many :cities, dependent: :destroy
+  validates :name, :abbrev, presence: true
 end

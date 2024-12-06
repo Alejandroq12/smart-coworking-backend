@@ -15,6 +15,8 @@ module BookAnAppointmentBackEndMvFinalCapstone
 
     # Allow API-only mode with session and cookies support
     config.api_only = true
+    config.log_tags = [:request_id, :remote_ip]
+    config.log_level = :info
   end
 end
 
