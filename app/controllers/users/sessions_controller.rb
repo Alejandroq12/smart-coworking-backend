@@ -22,16 +22,11 @@ class Users::SessionsController < Devise::SessionsController
       httponly: true, # Prevent JavaScript access
       secure: Rails.env.production?, # Only send over HTTPS in production
       same_site: :none, # Required for cross-origin requests
-      domain: cookie_domain, # Dynamically set domain
       expires: 1.day.from_now
     }
   end
 
   def clear_jwt_cookie
-    cookies.delete(:jwt, domain: cookie_domain, secure: Rails.env.production?)
-  end
-
-  def cookie_domain
-    Rails.env.production? ? 'alejandroq12.github.io' : :all
+    cookies.delete(:jwt, secure: Rails.env.production?)
   end
 end

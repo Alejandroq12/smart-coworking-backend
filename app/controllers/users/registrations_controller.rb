@@ -22,7 +22,6 @@ module Users
         httponly: Rails.env.production?, # True in production, false in development
         secure: Rails.env.production?, # True in production, false in development
         same_site: :lax,
-        domain: Rails.env.production? ? 'alejandroq12.github.io' : :all,
         expires: 1.day.from_now
       }
     end
