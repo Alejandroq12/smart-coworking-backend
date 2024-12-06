@@ -17,10 +17,10 @@ class Users::SessionsController < Devise::SessionsController
   def set_jwt_cookie(token)
     cookies.signed[:jwt] = {
       value: token,
-      httponly: Rails.env.production?, # True in production, false in development
-      secure: Rails.env.production?, # True in production, false in development
+      httponly: true, # True in production, false in development
+      secure: true, # True in production, false in development
       same_site: :lax,
-      domain: Rails.env.production? ? 'alejandroq12.github.io' : :all,
+      domain: 'alejandroq12.github.io',
       expires: 1.day.from_now
     }
   end
