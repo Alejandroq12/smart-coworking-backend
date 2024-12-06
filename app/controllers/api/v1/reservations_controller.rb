@@ -30,8 +30,8 @@ module Api
 
       def reservation_params
         params.require(:reservation)
-              .permit(:user_id, :space_cw_id, :date_reserved, :date_cancelled, :start_date,
-                      :end_date, :start_time, :end_time, :city_id, :comments)
+          .permit(:user_id, :space_cw_id, :date_reserved, :date_cancelled, :start_date,
+                  :end_date, :start_time, :end_time, :city_id, :comments)
       end
     end
   end

@@ -2,7 +2,7 @@ module Api
   module V1
     class WorkspacesController < BaseController
       before_action :authenticate_user!
-      before_action :set_workspace, only: [:show, :destroy]
+      before_action :set_workspace, only: %i[show destroy]
 
       def index
         reserved_space_ids = Reservation.select(:space_cw_id).distinct.pluck(:space_cw_id)
@@ -33,7 +33,8 @@ module Api
       private
 
       def workspace_params
-        params.require(:space_cw).permit(:name, :model, :description, :address, :price, :image, :discount, :category, :user_id)
+        params.require(:space_cw).permit(:name, :model, :description, :address, :price, :image, :discount, :category,
+                                         :user_id)
       end
 
       def set_workspace

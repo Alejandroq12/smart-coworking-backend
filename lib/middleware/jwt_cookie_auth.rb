@@ -11,7 +11,7 @@ class JwtCookieAuth
       Rails.logger.debug("JWT Token Found: #{jwt_token}")
       env['HTTP_AUTHORIZATION'] = "Bearer #{jwt_token}"
     else
-      Rails.logger.debug("JWT Token Missing or Empty")
+      Rails.logger.debug('JWT Token Missing or Empty')
     end
 
     @app.call(env)
@@ -21,6 +21,6 @@ class JwtCookieAuth
 
   def extract_token_from_header(env)
     auth_header = env['HTTP_AUTHORIZATION']
-    auth_header&.split(' ')&.last
+    auth_header&.split&.last
   end
 end
