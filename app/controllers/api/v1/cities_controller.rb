@@ -5,19 +5,20 @@ module Api
       before_action :set_city, only: [:show]
 
       def index
-        # Already returns a list of cities for a specific state_id (non-standard nested route)
-        state = State.includes(:cities).find(params[:state_id])
-        render json: state.cities, each_serializer: CitySerializer, status: :ok
+        if params[:state_id]
+          # Filter cities by given state_id
+          state = State.find(params[:state_id])
+          cities = state.cities.includes(state: :country).order('countries.abbrev ASC, states.abbrev ASC, cities.name ASC')
+        else
+          # Return all cities if no state_id given
+          cities = City.includes(state: :country).order('countries.abbrev ASC, states.abbrev ASC, cities.name ASC')
+        end
+
+        render json: cities, each_serializer: CitySerializer, status: :ok
       end
 
       def show
         render json: @city, serializer: CitySerializer, status: :ok
-      end
-
-      def all_cities
-        # Returning all cities ordered
-        cities = City.includes(state: :country).order('countries.abbrev ASC, states.abbrev ASC, cities.name ASC')
-        render json: cities, each_serializer: CitySerializer, status: :ok
       end
 
       private

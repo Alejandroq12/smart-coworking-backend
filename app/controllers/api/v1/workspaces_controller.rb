@@ -5,15 +5,13 @@ module Api
       before_action :set_workspace, only: %i[show destroy]
 
       def index
-        reserved_space_ids = Reservation.select(:space_cw_id).distinct.pluck(:space_cw_id)
-        workspaces = SpaceCw.where.not(id: reserved_space_ids)
-
-        # Return empty array if none found, not a not_found status, as empty is a valid state.
+        reserved_workspace_ids = Reservation.distinct.pluck(:workspace_id)
+        workspaces = Workspace.where.not(id: reserved_workspace_ids)
         render json: workspaces, each_serializer: WorkspaceSerializer, status: :ok
       end
 
       def create
-        workspace = SpaceCw.new(workspace_params)
+        workspace = Workspace.new(workspace_params)
         if workspace.save
           render json: workspace, serializer: WorkspaceSerializer, status: :created
         else
@@ -21,24 +19,23 @@ module Api
         end
       end
 
+      def show
+        render json: @workspace, serializer: WorkspaceSerializer, status: :ok
+      end
+
       def destroy
         @workspace.destroy
         head :no_content
       end
 
-      def show
-        render json: @workspace, serializer: WorkspaceSerializer, status: :ok
-      end
-
       private
 
       def workspace_params
-        params.require(:space_cw).permit(:name, :model, :description, :address, :price, :image, :discount, :category,
-                                         :user_id)
+        params.require(:workspace).permit(:name, :model, :description, :address, :price, :image, :discount, :category, :user_id)
       end
 
       def set_workspace
-        @workspace = SpaceCw.find(params[:id])
+        @workspace = Workspace.find(params[:id])
       end
     end
   end

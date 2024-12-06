@@ -7,8 +7,8 @@ RSpec.describe Reservation, type: :model do
       expect(association.macro).to eq :belongs_to
     end
 
-    it 'should belong to a space_cw' do
-      association = described_class.reflect_on_association(:space_cw)
+    it 'should belong to a workspace' do
+      association = described_class.reflect_on_association(:workspace)
       expect(association.macro).to eq :belongs_to
     end
 

@@ -8,28 +8,27 @@ Rails.application.routes.draw do
     registration: 'signup'
   }
 
-  # Defines the root path route ("/")
-  # root "posts#index"
-
-  # Namespaced API routes
   namespace :api do
     namespace :v1 do
+      # User-related routes
       resources :users, only: [:index] do
         resources :workspaces, only: [:index, :create, :destroy]
         resources :reservations, only: [:index, :create, :destroy]
       end
-      resources :states, only: [:index] do
-        # resources :reservations, only: [:index, :create, :destroy]
-        resources :cities, only: [:index] do
-          resources :reservations, only: [:index, :create, :destroy]
-        end
-      end
 
-      resources :cities, only: [:show]
-      get 'all_cities', to: 'cities#all_cities'
-      get 'workspaces', to: 'workspaces#index'
-      resources :workspaces, only: [:show]
+      # States routes remain if you need them. They can just list states:
+      resources :states, only: [:index]
+
+      # Cities: No separate "all_cities" route.
+      # Just use `GET /api/v1/cities` for all cities,
+      # or `GET /api/v1/cities?state_id=X` for filtered results.
+      resources :cities, only: [:index, :show]
+
+      # Workspaces remain standard RESTful routes
+      resources :workspaces, only: [:index, :show, :create, :destroy]
     end
   end
+
+  # Catch-all route for frontend client-side routing
   get '*path', to: redirect('/')
 end
