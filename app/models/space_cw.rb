@@ -3,4 +3,10 @@ class SpaceCw < ApplicationRecord
   has_many :reservations
   validates :name, :description, presence: true
   validates :price, :discount, numericality: { greater_than_or_equal_to: 0 }
+
+  def index
+    Rails.logger.debug "Authorization Header: #{request.headers['Authorization']}" # Debug log
+    @spaces = CoworkingSpace.all
+    render json: @spaces
+  end
 end

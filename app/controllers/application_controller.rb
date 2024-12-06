@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  include ActionController::Cookies # Ensure cookies helper is available
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

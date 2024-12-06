@@ -4,10 +4,25 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(resource, _opts = {})
-    render json: { user: resource, jwt: request.env['warden-jwt_auth.token'] }, status: :ok
+    token = request.env['warden-jwt_auth.token']
+    set_jwt_cookie(token)
+    render json: { user: resource }, status: :ok
   end
 
   def respond_to_on_destroy
+    cookies.delete(:jwt, domain: :all, secure: Rails.env.production?)
     head :no_content
   end
+
+  def set_jwt_cookie(token)
+    cookies.signed[:jwt] = {
+      value: token,
+      httponly: Rails.env.production?, # True in production, false in development
+      secure: Rails.env.production?, # True in production, false in development
+      same_site: :lax,
+      domain: Rails.env.production? ? 'alejandroq12.github.io' : :all,
+      expires: 1.day.from_now
+    }
+  end
+  
 end
