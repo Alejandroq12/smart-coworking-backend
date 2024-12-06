@@ -42,19 +42,19 @@ city20 = City.create(name: 'Arlington', state_id: state3.id)
 
 # Coworking Spaces
 space1 = SpaceCw.create(name: 'SF Mid Market - Private Office 2p', model: 'PO-2p', description: 'San Francisco -Mid Market. Move-in ready office, capacity of 2 persons. Fully furnished.',
-  address: '#1005 Market St. SF, CA', price: 0, image: 'http://cdn.com/122546.png', discount: 0, category: '', user_id: user1.id)
+  address: '#1005 Market St. SF, CA', price: 0, image: 'https://img.freepik.com/free-photo/luxury-cottage-old-suburb-illuminated-by-twilight-lighting-generated-by-artificial-intelligence_188544-150345.jpg', discount: 0, category: '', user_id: user1.id)
 space2 = SpaceCw.create(name: 'SF Mid Market - Private Office 4p', model: 'PO-4p', description: 'San Francisco - Mid Market. Move-in ready office, capacity of 4 people. Fully furnished.',
-  address: '#1005 Market St. SF, CA', price: 0, image: 'http://cdn.com/122545.png', discount: 0, category: '', user_id: user1.id)
+  address: '#1005 Market St. SF, CA', price: 0, image: 'https://www.zillowstatic.com/bedrock/app/uploads/sites/47/strategies-for-finding-cheap-houses-c81cd7.jpg', discount: 0, category: '', user_id: user1.id)
 space3 = SpaceCw.create(name: 'SF Downtown - Meeting Room 20p', model: 'MR-20p', description: 'San Francisco - Downtown. Book a room by the hour for meeting clients and co-workers. Capacity of 20 people.',
-  address: '#473 Franklin St. SF, CA', price: 0, image: 'http://cdn.com/122536.png', discount: 0, category: '', user_id: user1.id)
+  address: '#473 Franklin St. SF, CA', price: 0, image: 'https://rdcnewsadvice.wpengine.com/wp-content/uploads/2018/08/Indianapolis-IN-home.jpg', discount: 0, category: '', user_id: user1.id)
 space4 = SpaceCw.create(name: 'Dallas Downtown - Meeting Room 10p', model: 'MR-10p', description: 'Dallas - Downtown. Book a room by the hour for meeting clients and co-workers. Capacity of 10 people.',
-  address: '#387 Johnson St. Downtown, Dallas, TX', price: 0, image: 'http://cdn.com/123336.png', discount: 0, category: '', user_id: user2.id)
+  address: '#387 Johnson St. Downtown, Dallas, TX', price: 0, image: 'https://i.pinimg.com/550x/fc/07/40/fc0740d7c26d93974e117cb88a81bc36.jpg', discount: 0, category: '', user_id: user2.id)
 space5 = SpaceCw.create(name: 'Dallas Downtown - Private Office 4p', model: 'PO-4p', description: 'Dallas - Downtown. Move-in ready office, capacity of 4 people. Fully furnished.',
-  address: '#387 Johnson St. Downtown, Dallas, TX', price: 0, image: 'http://cdn.com/122545.png', discount: 0, category: '', user_id: user2.id)
+  address: '#387 Johnson St. Downtown, Dallas, TX', price: 0, image: 'https://cdn.habitusliving.com/wp-content/uploads/2024/02/1.smallmodhomesFEAT.jpg', discount: 0, category: '', user_id: user2.id)
 space6 = SpaceCw.create(name: 'NY Central Park - Private Office 4p', model: 'PO-4p', description: 'New York City - Central Park - Manhattan. Move-in ready office, capacity of 4 persons. Fully furnished.',
-  address: '#387 Fifth Ave. MAN, New York City, NY', price: 0, image: 'http://cdn.com/432547.png', discount: 0, category: '', user_id: user3.id)
+  address: '#387 Fifth Ave. MAN, New York City, NY', price: 0, image: 'https://images.surferseo.art/fdb08e2e-5d39-402c-ad0c-8a3293301d9e.png', discount: 0, category: '', user_id: user3.id)
 space7 = SpaceCw.create(name: 'NY Central Park - Private Office 8p', model: 'PO-8p', description: 'New York City - Central Park - Manhattan. Move-in ready office, capacity of 8 persons. Fully furnished.',
-  address: '#387 Fifth Ave. MAN, New York City, NY', price: 0, image: 'http://cdn.com/482587.png', discount: 0, category: '', user_id: user3.id)
+  address: '#387 Fifth Ave. MAN, New York City, NY', price: 0, image: 'https://s42814.pcdn.co/wp-content/uploads/2024/05/240321-This_Old_House_Raquel_Langworthy_058_V2-scaled-1024x576.jpg.optimal.jpg', discount: 0, category: '', user_id: user3.id)
 
 # Space Reservations
 start_date1 = Date.tomorrow
