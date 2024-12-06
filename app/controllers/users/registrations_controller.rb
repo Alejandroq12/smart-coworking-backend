@@ -16,13 +16,13 @@ module Users
     end
 
     # Helper method to set JWT as an HTTPOnly cookie
-    def set_jwt_cookie(token) # rubocop:disable Naming/AccessorMethodName
+    def set_jwt_cookie(token)
       cookies.signed[:jwt] = {
         value: token,
-        httponly: true,
-        secure: Rails.env.production?,
-        same_site: :strict,
-        domain: 'localhost', # Explicitly set the domain
+        httponly: Rails.env.production?, # True in production, false in development
+        secure: Rails.env.production?, # True in production, false in development
+        same_site: :lax,
+        domain: Rails.env.production? ? 'alejandroq12.github.io' : :all,
         expires: 1.day.from_now
       }
     end
