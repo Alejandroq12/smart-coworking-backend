@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_13_214442) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_14_001000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_214442) do
 
   create_table "reservations", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "space_cw_id", null: false
+    t.bigint "workspace_id", null: false
     t.date "date_reserved"
     t.date "date_cancelled"
     t.date "start_date"
@@ -51,23 +51,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_214442) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_reservations_on_city_id"
-    t.index ["space_cw_id"], name: "index_reservations_on_space_cw_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
-  end
-
-  create_table "space_cws", force: :cascade do |t|
-    t.string "name"
-    t.string "model"
-    t.text "description"
-    t.string "address"
-    t.decimal "price"
-    t.string "image"
-    t.decimal "discount"
-    t.string "category"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_space_cws_on_user_id"
+    t.index ["workspace_id"], name: "index_reservations_on_workspace_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -81,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_214442) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
+    t.string "email", null: false
     t.string "password"
     t.string "role"
     t.datetime "created_at", null: false
@@ -94,10 +79,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_214442) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "workspaces", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "model"
+    t.text "description", null: false
+    t.string "address"
+    t.decimal "price", default: "0.0"
+    t.string "image"
+    t.decimal "discount", default: "0.0"
+    t.string "category"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_workspaces_on_user_id"
+  end
+
   add_foreign_key "cities", "states"
   add_foreign_key "reservations", "cities"
-  add_foreign_key "reservations", "space_cws"
   add_foreign_key "reservations", "users"
-  add_foreign_key "space_cws", "users"
+  add_foreign_key "reservations", "workspaces"
   add_foreign_key "states", "countries"
+  add_foreign_key "workspaces", "users"
 end

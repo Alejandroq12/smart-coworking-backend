@@ -1,4 +1,4 @@
-class SpaceCw < ApplicationRecord
+class Workspace < ApplicationRecord
   belongs_to :user
   has_many :reservations
   validates :name, :description, presence: true
