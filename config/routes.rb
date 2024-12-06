@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index] do
-        resources :space_cws, only: [:index, :create, :destroy]
+        resources :workspaces, only: [:index, :create, :destroy]
         resources :reservations, only: [:index, :create, :destroy]
       end
       resources :states, only: [:index] do
@@ -27,8 +27,8 @@ Rails.application.routes.draw do
 
       resources :cities, only: [:show]
       get 'all_cities', to: 'cities#all_cities'
-      get 'coworking_spaces', to: 'space_cws#index'
-      resources :space_cws, only: [:show]
+      get 'workspaces', to: 'workspaces#index'
+      resources :workspaces, only: [:show]
     end
   end
   get '*path', to: redirect('/')
