@@ -20,7 +20,7 @@ class Users::SessionsController < Devise::SessionsController
       httponly: true, # True in production, false in development
       secure: true, # True in production, false in development
       same_site: :lax,
-      domain: 'alejandroq12.github.io',
+      domain: Rails.env.production? ? 'alejandroq12.github.io' : :all,
       expires: 1.day.from_now
     }
   end
