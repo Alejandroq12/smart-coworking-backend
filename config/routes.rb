@@ -31,4 +31,5 @@ Rails.application.routes.draw do
       resources :space_cws, only: [:show]
     end
   end
+  get '*path', to: redirect('/')
 end

@@ -21,7 +21,7 @@ class Users::SessionsController < Devise::SessionsController
       value: token,
       httponly: true, # Prevent JavaScript access
       secure: Rails.env.production?, # Only send over HTTPS in production
-      same_site: :none, # Required for cross-origin requests
+      same_site: :lax, # Required for cross-origin requests
       expires: 1.day.from_now
     }
   end
