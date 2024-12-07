@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_14_002000) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_15_003000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,17 +41,13 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_14_002000) do
   create_table "reservations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "workspace_id", null: false
-    t.date "date_reserved"
-    t.date "date_cancelled"
     t.date "start_date"
     t.date "end_date"
     t.time "start_time"
     t.time "end_time"
-    t.bigint "city_id", null: false
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_reservations_on_city_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
     t.index ["workspace_id"], name: "index_reservations_on_workspace_id"
   end
@@ -93,13 +89,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_14_002000) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_workspaces_on_city_id"
     t.index ["user_id"], name: "index_workspaces_on_user_id"
   end
 
   add_foreign_key "cities", "states"
-  add_foreign_key "reservations", "cities"
   add_foreign_key "reservations", "users"
   add_foreign_key "reservations", "workspaces"
   add_foreign_key "states", "countries"
+  add_foreign_key "workspaces", "cities"
   add_foreign_key "workspaces", "users"
 end
