@@ -16,7 +16,6 @@ Rails.application.routes.draw do
         resources :reservations, only: [:index, :create, :destroy]
       end
 
-      # States routes remain if you need them. They can just list states:
       resources :states, only: [:index]
 
       # Cities: No separate "all_cities" route.

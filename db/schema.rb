@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_14_001000) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_14_002000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,9 +24,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_14_001000) do
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
-    t.string "abbrev"
+    t.string "abbrev", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["abbrev"], name: "index_countries_on_abbrev", unique: true
   end
 
   create_table "jwt_denylists", force: :cascade do |t|
@@ -57,10 +58,11 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_14_001000) do
 
   create_table "states", force: :cascade do |t|
     t.string "name"
-    t.string "abbrev"
+    t.string "abbrev", null: false
     t.bigint "country_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["country_id", "abbrev"], name: "index_states_on_country_id_and_abbrev", unique: true
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
@@ -81,9 +83,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_14_001000) do
 
   create_table "workspaces", force: :cascade do |t|
     t.string "name", null: false
-    t.string "model"
+    t.string "model", null: false
     t.text "description", null: false
-    t.string "address"
+    t.string "address", null: false
     t.decimal "price", default: "0.0"
     t.string "image"
     t.decimal "discount", default: "0.0"

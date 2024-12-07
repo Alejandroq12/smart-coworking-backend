@@ -11,11 +11,11 @@ module Api
       end
 
       def create
-        reservation = Reservation.new(reservation_params)
-        if reservation.save
-          render json: reservation, serializer: ReservationSerializer, status: :created
+        result = ReservationCreator.new(reservation_params).call
+        if result.is_a?(Array)
+          render json: { errors: result }, status: :unprocessable_entity
         else
-          render json: { errors: reservation.errors.full_messages }, status: :unprocessable_entity
+          render json: result, serializer: ReservationSerializer, status: :created
         end
       end
 
