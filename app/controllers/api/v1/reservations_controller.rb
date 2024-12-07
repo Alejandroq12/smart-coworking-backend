@@ -4,14 +4,13 @@ module Api
       before_action :authenticate_user!
 
       def index
-        user = User.find(params[:user_id])
-        reservations = user.reservations
-        # Return the reservations array (empty if no reservations)
+        reservations = current_user.reservations.includes(workspace: :city)
         render json: reservations, each_serializer: ReservationSerializer, status: :ok
       end
 
       def create
-        result = ReservationCreator.new(reservation_params).call
+        final_params = reservation_params.merge(user_id: current_user.id)
+        result = ReservationCreator.new(final_params).call
         if result.is_a?(Array)
           render json: { errors: result }, status: :unprocessable_entity
         else
@@ -20,18 +19,18 @@ module Api
       end
 
       def destroy
-        user = User.find(params[:user_id])
-        reservation = user.reservations.find(params[:id])
+        reservation = current_user.reservations.find(params[:id])
         reservation.destroy
         head :no_content
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: 'Reservation not found' }, status: :not_found
       end
 
       private
 
       def reservation_params
         params.require(:reservation)
-          .permit(:user_id, :workspace_id, :date_reserved, :date_cancelled, :start_date,
-                  :end_date, :start_time, :end_time, :city_id, :comments)
+          .permit(:workspace_id, :start_date, :end_date, :start_time, :end_time, :comments)
       end
     end
   end

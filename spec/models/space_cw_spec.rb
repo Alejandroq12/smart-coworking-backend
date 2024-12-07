@@ -27,7 +27,7 @@ RSpec.describe Workspace, type: :model do
     end
 
     it 'should validate numericality of price' do
-      workspace= Workspace.new(name: 'Test Name', description: 'Test Description', price: 'not_a_number')
+      workspace = Workspace.new(name: 'Test Name', description: 'Test Description', price: 'not_a_number')
       expect(workspace).not_to be_valid
       expect(workspace.errors[:price]).to include('is not a number')
 

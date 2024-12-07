@@ -1,3 +1,4 @@
+# app/controllers/api/v1/workspaces_controller.rb
 module Api
   module V1
     class WorkspacesController < BaseController
@@ -11,7 +12,7 @@ module Api
       end
 
       def create
-        workspace = Workspace.new(workspace_params)
+        workspace = Workspace.new(workspace_params.merge(user_id: current_user.id))
         if workspace.save
           render json: workspace, serializer: WorkspaceSerializer, status: :created
         else
@@ -31,7 +32,9 @@ module Api
       private
 
       def workspace_params
-        params.require(:workspace).permit(:name, :model, :description, :address, :price, :image, :discount, :category, :user_id)
+        # Now requires city_id from the frontend, and no user_id
+        params.require(:workspace).permit(:name, :model, :description, :address, :price, :image, :discount, :category,
+                                          :city_id)
       end
 
       def set_workspace
